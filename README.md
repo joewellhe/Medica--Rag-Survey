@@ -14,7 +14,7 @@ This survey focuses on useful techniques and the latest advances in medical and 
 
 ### Basic framework
 
-<img src=".\img\healthcare_Rag.png" alt="healthcare_Rag" style="zoom:85%;" />
+<img src=".\img\healthcare_Rag.png" alt="healthcare_Rag" style="zoom:58%;" />
 
 
 
