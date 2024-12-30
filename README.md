@@ -14,7 +14,9 @@ This survey focuses on useful techniques and the latest advances in medical and 
 
 ### Basic framework
 
-<img src=".\img\healthcare_Rag.png" alt="healthcare_Rag" style="zoom:75%;" />
+Here we present a basic framework of the vanilla medical RAG. As shown in the following figure, there are four key components in medical RAG: the retriever, knowledge source, ranking method, and large language model (LLM). A question is first processed by the retriever, which indexes some relevant documents from a variety of knowledge sources composed of webpages, academic papers, textbooks and so forth. After retrieval, we obtain references, also referred to as context or background knowledge in some literature. RAG uses ranking methods to sort these references based on their relevance to the original question. Finally, the references, along with the original question, are sent to the LLM as input to generate the final result.
+
+<img src=".\img\healthcare_Rag.png" alt="healthcare_Rag" />
 
 
 
@@ -24,9 +26,9 @@ This survey focuses on useful techniques and the latest advances in medical and 
 
 ### Generation Model
 
-### Dataset
-
 ### Knowledge Source
+
+### Dataset
 
 ### Evaluation Method
 
