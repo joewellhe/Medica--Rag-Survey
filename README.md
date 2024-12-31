@@ -30,7 +30,7 @@ The retriever is a key component to decide the relevance of references to the qu
 
 Using a search engine provides access to a wide range of external knowledge sources, making the search engine retriever a promising component in RAG (Retrieval-Augmented Generation). Below, we list some tools that are commonly used as retrievers in medical RAG, along with relevant literature that utilizes these tools.
 
-#### **The [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/) (NCBI) Tool**
+#### The [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/) (NCBI) Tool
 
 > NCBI provides many useful products, including [PubMed](https://pubmed.ncbi.nlm.nih.gov/), [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/), [PubChem](https://pubchem.ncbi.nlm.nih.gov/), [Gene](https://www.ncbi.nlm.nih.gov/gene), and [Genome](https://www.ncbi.nlm.nih.gov/data-hub/genome/). In addition to the web interfaces to these products, NCBI also provides an API allowing programmatic access to the underlying databases and search technology.
 
@@ -38,11 +38,11 @@ Using a search engine provides access to a wide range of external knowledge sour
 
 **PubMed API** provides access to the PubMed database when you specify the database as "PubMed" in your search query. Note that the PubMed API is part of the Entrez API system. You can also specify other databases, such as PubMed Central or Gene, in your search queries.
 
-#### **Wikipedia Tool**
+#### Wikipedia Tool
 
-[**Wikipedia API**](https://www.mediawiki.org/wiki/API:Main_page)** is a set of application programming interfaces (APIs) that allows developers to access and interact with Wikipedia's vast content programmatically
+[**Wikipedia API**](https://www.mediawiki.org/wiki/API:Main_page) is a set of application programming interfaces (APIs) that allows developers to access and interact with Wikipedia's vast content programmatically
 
-#### literature
+#### Literature
 
 - An open-source retrieval-augmented large language model system for answering medical questions using scientific literature. [[pdf]](https://psb.stanford.edu/psb-online/proceedings/psb24/lozano.pdf) <br>use Entrez API as retriever <br>https://github.com/som-shahlab/Clinfo.AI/tree/main
 
