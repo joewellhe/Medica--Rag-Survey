@@ -14,15 +14,69 @@ This survey focuses on useful techniques and the latest advances in medical and 
 
 ### Basic framework
 
-Here we present a basic framework of the vanilla medical RAG. As shown in the following figure, there are four key components in medical RAG: the retriever, knowledge source, ranking method, and large language model (LLM). A question is first processed by the retriever, which indexes some relevant documents from a variety of knowledge sources composed of webpages, academic papers, textbooks and so forth. After retrieval, we obtain references, also referred to as context or background knowledge in some literature. RAG uses ranking methods to sort these references based on their relevance to the original question. Finally, the references, along with the original question, are sent to the LLM as input to generate the final result.
+Here we present a basic framework of the vanilla medical RAG. As shown in the following figure, there are four key components in medical RAG: the retriever, knowledge source, ranking method, and large language model (LLM). A question is first processed by the retriever, which indexes some relevant documents from a variety of knowledge sources composed of webpages, academic papers, textbooks and so forth. After retrieval, we obtain references, also referred to as context or background knowledge in some literature. RAG uses ranking methods to sort these references based on their relevance to the original question. Finally, the top-k relented references, along with the original question, are sent to the LLM as input to generate the final result.
 
 <img src=".\img\healthcare_Rag.png" alt="healthcare_Rag" />
 
-
-
 ### Retriever
 
+The retriever is a key component to decide the relevance of references to the question. A good retriever can identify the most relevant and useful documents to answer the question, while a poor one may fail to be helpful and introduce noisy information.  Here we divide these retrievers into following 3 different types. 
+
+#### Keywords Retriever
+
+**[BM25](https://dl.acm.org/doi/abs/10.1561/1500000019)** is a ranking function used in information retrieval to estimate the relevance of documents to a given search query. It is commonly treated as a baseline for comparison with other retrievers. However, in many tasks, experimental results demonstrate that it still offers competitive performance.
+
+#### Search Engine Retriever
+
+Using a search engine provides access to a wide range of external knowledge sources, making the search engine retriever a promising component in RAG (Retrieval-Augmented Generation). Below, we list some tools that are commonly used as retrievers in medical RAG, along with relevant literature that utilizes these tools.
+
+##### The [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/) (NCBI) Tool
+
+NCBI provides many useful products, including [PubMed](https://pubmed.ncbi.nlm.nih.gov/), [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/), [PubChem](https://pubchem.ncbi.nlm.nih.gov/), [Gene](https://www.ncbi.nlm.nih.gov/gene), and [Genome](https://www.ncbi.nlm.nih.gov/data-hub/genome/). In addition to the web interfaces to these products, NCBI also provides an API allowing programmatic access to the underlying databases and search technology.
+
+[**Entrez API**](https://www.ncbi.nlm.nih.gov/home/develop/api/), also known as Entrez Programming Utilities (E-utilities), is a set of web-based tools provided by the National Center for Biotechnology Information (NCBI). These tools allow researchers and developers to access and retrieve data from NCBI's comprehensive suite of biological databases programmatically.
+
+**PubMed API **provides access to the PubMed database when you specify the database as "PubMed" in your search query. Note that the PubMed API is part of the Entrez API system. You can also specify other databases, such as PubMed Central or Gene, in your search queries.
+
+##### Wikipedia Tool
+
+[**Wikipedia API**](https://www.mediawiki.org/wiki/API:Main_page)** is a set of application programming interfaces (APIs) that allows developers to access and interact with Wikipedia's vast content programmatically
+
+##### literature
+
+- An open-source retrieval-augmented large language model system for answering medical questions using scientific literature. [[pdf]](https://psb.stanford.edu/psb-online/proceedings/psb24/lozano.pdf)
+
+  use Entrez API as retriever
+
+  https://github.com/som-shahlab/Clinfo.AI/tree/main
+
+
+
+
+
+
+
+RagPULSE
+
+#### Semantic Retriever
+
+openAI的embeding
+
+PubMedBERT
+
+BioBERT
+
+MedLLaMA 13b做embedding embedding层的平均
+
+Contriever
+
+SPECTER
+
+MedCPT
+
 ### Ranking Method
+
+Reciprocal Rank Fusion
 
 ### Generation Model
 
