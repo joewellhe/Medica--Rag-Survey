@@ -75,7 +75,7 @@ We can construct a semantic retriever by combining an embedding method with a ve
 
 General embedding models are trained on general corpora and are widely used in various information retrieval systems. There are a substantial number of open-source general embedding models, and they are often treated as baselines in Biomedical RAG experiments. The following table shows some representative models.
 
-| Model        | Feature                | Data | link                                                         |
+| Model        | Feature                | Data | Link                                                         |
 | ------------ | ---------------------- | ---- | ------------------------------------------------------------ |
 | **LDA**      | Machine Learning based | 2003 | [pdf](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf); [Github](https://github.com/lda-project/lda) |
 | **Doc2Vec**  | Deep Learning based    | 2014 | [pdf](https://proceedings.mlr.press/v32/le14.html); [Github](https://github.com/inejc/paragraph-vectors) |
@@ -87,15 +87,25 @@ General embedding models are trained on general corpora and are widely used in v
 
 ##### Commercial Embeddings Models
 
-##### Biomedical Embeddings Models
+Thanks to recent advances in Large Language Models, many AI companies now provide commercial embedding APIs, which are popular among biomedical researchers and developers. Although these services may be costly, especially with large datasets, their attractive performance has led to widespread use.  The following table lists some popular commercial embedding models. Note that each company offers models of various sizes, so the maximum input and embedding dimensions may vary.
 
-openAI的embeding
+| Model          | Max Input Token | Dimension | Company | Link                                                         |
+| -------------- | --------------- | --------- | ------- | ------------------------------------------------------------ |
+| text-embedding | 8191            | 1536-3072 | OPEN AI | [document](https://platform.openai.com/docs/guides/embeddings) |
+| voyage-2       | 4000~1600       | 1024-1536 | Claude  | [document](https://docs.anthropic.com/en/docs/build-with-claude/embeddings) |
+| Vertex AI      | 3072            | 768       | Google  | [document](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) |
+| bge-large      | 512             | 1024      | Baidu   | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/mllz05nzk) |
+| tao-8k         | 8192            | 1024      | Baidu   | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/7lq0buxys) |
+
+##### Embedding with open source LLM
+
+MedLLaMA 13b做embedding embedding层的平均
+
+##### Biomedical Embeddings Models
 
 PubMedBERT
 
 BioBERT
-
-MedLLaMA 13b做embedding embedding层的平均
 
 #### Scientific and Biomedical Retriever
 
