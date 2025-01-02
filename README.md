@@ -22,17 +22,17 @@ Here we present a basic framework of the vanilla medical RAG. As shown in the fo
 
 The retriever is a key component to decide the relevance of references to the question. A good retriever can identify the most relevant and useful documents to answer the question, while a poor one may fail to be helpful and introduce noisy information.  Here we divide these retrievers into following 3 different types. 
 
-### Keywords Retriever
+### Lexical Retriever
 
-**[BM25](https://dl.acm.org/doi/abs/10.1561/1500000019)** is a ranking function used in information retrieval to estimate the relevance of documents to a given search query. It is commonly treated as a baseline for comparison with other retrievers. However, in many tasks, experimental results demonstrate that it still offers competitive performance.
+**BM25** [[pdf]](https://dl.acm.org/doi/abs/10.1561/1500000019) is a ranking function used in information retrieval to estimate the relevance of documents to a given search query. It is commonly treated as a baseline for comparison with other retrievers. However, in many tasks, experimental results demonstrate that it still offers competitive performance.
 
 ### Search Engine Retriever
 
 Using a search engine provides access to a wide range of external knowledge sources, making the search engine retriever a promising component in RAG (Retrieval-Augmented Generation). Below, we list some tools that are commonly used as retrievers in medical RAG, along with relevant literature that utilizes these tools.
 
-#### The [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/) (NCBI) Tool
+#### NCBI Tool
 
-> NCBI provides many useful products, including [PubMed](https://pubmed.ncbi.nlm.nih.gov/), [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/), [PubChem](https://pubchem.ncbi.nlm.nih.gov/), [Gene](https://www.ncbi.nlm.nih.gov/gene), and [Genome](https://www.ncbi.nlm.nih.gov/data-hub/genome/). In addition to the web interfaces to these products, NCBI also provides an API allowing programmatic access to the underlying databases and search technology.
+> The [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/) (NCBI) provides many useful products, including [PubMed](https://pubmed.ncbi.nlm.nih.gov/), [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/), [PubChem](https://pubchem.ncbi.nlm.nih.gov/), [Gene](https://www.ncbi.nlm.nih.gov/gene), and [Genome](https://www.ncbi.nlm.nih.gov/data-hub/genome/). In addition to the web interfaces to these products, NCBI also provides an API allowing programmatic access to the underlying databases and search technology.
 
 [**Entrez API**](https://www.ncbi.nlm.nih.gov/home/develop/api/), also known as Entrez Programming Utilities (E-utilities), is a set of web-based tools provided by the National Center for Biotechnology Information (NCBI). These tools allow researchers and developers to access and retrieve data from NCBI's comprehensive suite of biological databases programmatically.
 
@@ -40,25 +40,40 @@ Using a search engine provides access to a wide range of external knowledge sour
 
 #### Wikipedia Tool
 
-[**Wikipedia API**](https://www.mediawiki.org/wiki/API:Main_page) is a set of application programming interfaces (APIs) that allows developers to access and interact with Wikipedia's vast content programmatically
+[**Wikipedia API**](https://www.mediawiki.org/wiki/API:Main_page) is a set of application programming interfaces (APIs) that allows developers to access and interact with Wikipedia's vast content programmatically.
+
+#### Question2Query
+
+Sometimes, an LLM (Large Language Model) is used to transform a user's question or dialogue history into a search engine query, which is then executed in the search engine database. We refer to this method as 'Question2Query.' This approach is often used in combination with a search engine retriever.
 
 #### Literature
 
-- An open-source retrieval-augmented large language model system for answering medical questions using scientific literature. [[pdf]](https://psb.stanford.edu/psb-online/proceedings/psb24/lozano.pdf) <br>use Entrez API as retriever <br>https://github.com/som-shahlab/Clinfo.AI/tree/main
-
-
-
-
-
-
-
-
-
-
-
-RagPULSE
+- An open-source retrieval-augmented large language model system for answering medical questions using scientific literature. [[pdf]](https://psb.stanford.edu/psb-online/proceedings/psb24/lozano.pdf) <br>using Entrez API as retriever, Question2Query <br>https://github.com/som-shahlab/Clinfo.AI/tree/main
+- Tool calling: Enhancing medication consultation via retrieval-augmented large language models.[[pdf]](https://arxiv.org/html/2404.17897v1) <br>Distilling the key information and forming the searching query (Question2Query ), using search engine as retriever
 
 ### Semantic Retriever
+
+Due to recent advancements in deep learning, semantic retrievers, also known as dense retrievers, have achieved impressive performance and are widely used in Biomedical RAG. These retrievers encode and match queries and documents as dense vectors (document embeddings). This approach often utilizes Pre-trained Language Models (PLMs) to encode documents, treating the nearest documents in vector space as the most relevant at a semantic level. 
+
+#### [Vector Store](https://python.langchain.com/v0.1/docs/modules/data_connection/vectorstores/)
+
+> One of the most common ways to store and search over unstructured data is to embed it and store the resulting embedding vectors, and then at query time to embed the unstructured query and retrieve the embedding vectors that are 'most similar' to the embedded query. A vector store takes care of storing embedded data and performing vector search for you.
+
+The process of embedding, storing, and searching documents is illustrated in the following picture. Here, we list two commonly used vector stores in Biomedical RAG.
+
+![vector_stores](.\img\vector_stores.jpg)
+
+> [**Chroma**](https://docs.trychroma.com/docs/overview/getting-started) is an AI-native open-source vector database. It comes with everything you need to get started built in, and runs on your machine.
+
+> [**Faiss**](https://github.com/facebookresearch/faiss) is a library for efficient similarity search and clustering of dense vectors. It contains algorithms that search in sets of vectors of any size, up to ones that possibly do not fit in RAM. It also contains supporting code for evaluation and parameter tuning. 
+
+#### Embedding-based Retriever
+
+general embeddings model
+
+commercial embeddings model
+
+biomedical embeddings model
 
 openAI的embeding
 
@@ -68,11 +83,15 @@ BioBERT
 
 MedLLaMA 13b做embedding embedding层的平均
 
+#### Scientific and Biomedical Retriever
+
 Contriever
 
 SPECTER
 
 MedCPT
+
+Literature
 
 ## Ranking Method
 
