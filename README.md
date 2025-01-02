@@ -55,11 +55,11 @@ Sometimes, an LLM (Large Language Model) is used to transform a user's question 
 
 Due to recent advancements in deep learning, semantic retrievers, also known as dense retrievers, have achieved impressive performance and are widely used in Biomedical RAG. These retrievers encode and match queries and documents as dense vectors (document embeddings). This approach often utilizes Pre-trained Language Models (PLMs) to encode documents, treating the nearest documents in vector space as the most relevant at a semantic level. 
 
-#### [Vector Store](https://python.langchain.com/v0.1/docs/modules/data_connection/vectorstores/)
+#### [Vector Stores](https://python.langchain.com/v0.1/docs/modules/data_connection/vectorstores/)
 
 > One of the most common ways to store and search over unstructured data is to embed it and store the resulting embedding vectors, and then at query time to embed the unstructured query and retrieve the embedding vectors that are 'most similar' to the embedded query. A vector store takes care of storing embedded data and performing vector search for you.
 
-The process of embedding, storing, and searching documents is illustrated in the following picture. Here, we list two commonly used vector stores in Biomedical RAG.
+Vector stores are an important component in semantic retrievers, offering efficient search methods like K-nearest neighbors (KNN) for RAG developers. They enable rapid retrieval of semantically similar documents, enhancing the performance of Biomedical RAG systems. The process of embedding, storing, and searching documents is illustrated in the following picture. Here, we list two commonly used vector stores in Biomedical RAG.
 
 <img src=".\img\vector_stores.jpg"/>
 
@@ -69,11 +69,25 @@ The process of embedding, storing, and searching documents is illustrated in the
 
 #### Embedding-based Retriever
 
-general embeddings model
+We can construct a semantic retriever by combining an embedding method with a vector store. However, it is crucial to select an appropriate embedding model, as the training corpora of these models vary, leading to differing abilities to encode various types of documents.
 
-commercial embeddings model
+##### General Embeddings Models
 
-biomedical embeddings model
+General embedding models are trained on general corpora and are widely used in various information retrieval systems. There are a substantial number of open-source general embedding models, and they are often treated as baselines in Biomedical RAG experiments. The following table shows some representative models.
+
+| Model        | Feature                | Data | link                                                         |
+| ------------ | ---------------------- | ---- | ------------------------------------------------------------ |
+| **LDA**      | Machine Learning based | 2003 | [pdf](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf); [Github](https://github.com/lda-project/lda) |
+| **Doc2Vec**  | Deep Learning based    | 2014 | [pdf](https://proceedings.mlr.press/v32/le14.html); [Github](https://github.com/inejc/paragraph-vectors) |
+| **FastText** | Deep Learning based    | 2017 | [pdf](https://aclanthology.org/Q17-1010.pdf); [Github](https://github.com/facebookresearch/fastText/) |
+| **Sent2Vec** | Deep Learning based    | 2018 | [pdf](https://aclanthology.org/N18-1049/); [Github](https://github.com/epfml/sent2vec) |
+| **RoBERTa**  | BERT based             | 2019 | [pdf](https://arxiv.org/abs/1907.11692); [Hugging Face](https://huggingface.co/docs/transformers/model_doc/roberta) |
+| **ColBERT**  | BERT based             | 2020 | [pdf](https://dl.acm.org/doi/10.1145/3397271.3401075); [Github](https://github.com/stanford-futuredata/ColBERT); [Hugging Face](https://huggingface.co/colbert-ir/colbertv2.0) |
+| **SimCSE**   | Contrastive Learning   | 2021 | [pdf](https://aclanthology.org/2021.emnlp-main.552/); [Github](https://github.com/princeton-nlp/SimCSE) |
+
+##### Commercial Embeddings Models
+
+##### Biomedical Embeddings Models
 
 openAI的embeding
 
@@ -91,7 +105,7 @@ SPECTER
 
 MedCPT
 
-Literature
+#### Literature
 
 ## Ranking Method
 
