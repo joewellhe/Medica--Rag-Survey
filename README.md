@@ -61,7 +61,7 @@ Due to recent advancements in deep learning, semantic retrievers, also known as 
 
 The process of embedding, storing, and searching documents is illustrated in the following picture. Here, we list two commonly used vector stores in Biomedical RAG.
 
-![vector_stores](.\img\vector_stores.jpg)
+<img src=".\img\vector_stores.jpg"/>
 
 > [**Chroma**](https://docs.trychroma.com/docs/overview/getting-started) is an AI-native open-source vector database. It comes with everything you need to get started built in, and runs on your machine.
 
