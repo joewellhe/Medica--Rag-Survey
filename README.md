@@ -71,7 +71,7 @@ Vector stores are an important component in semantic retrievers, offering effici
 
 We can construct a semantic retriever by combining an embedding method with a vector store. However, it is crucial to select an appropriate embedding model, as the training corpora of these models vary, leading to differing abilities to encode various types of documents.
 
-##### General Embeddings Models
+##### General Embedding Models
 
 General embedding models are trained on general corpora and are widely used in various information retrieval systems. There are a substantial number of open-source general embedding models, and they are often treated as baselines in Biomedical RAG experiments. The following table shows some representative models.
 
@@ -85,27 +85,34 @@ General embedding models are trained on general corpora and are widely used in v
 | **ColBERT**  | BERT based             | 2020 | [pdf](https://dl.acm.org/doi/10.1145/3397271.3401075); [Github](https://github.com/stanford-futuredata/ColBERT); [Hugging Face](https://huggingface.co/colbert-ir/colbertv2.0) |
 | **SimCSE**   | Contrastive Learning   | 2021 | [pdf](https://aclanthology.org/2021.emnlp-main.552/); [Github](https://github.com/princeton-nlp/SimCSE) |
 
-##### Commercial Embeddings Models
+##### Commercial Embedding Models
 
 Thanks to recent advances in Large Language Models, many AI companies now provide commercial embedding APIs, which are popular among biomedical researchers and developers. Although these services may be costly, especially with large datasets, their attractive performance and convenience (call API only, not need for train) has led to widespread use.  The following table lists some popular commercial embedding models. Note that each company offers models of various sizes, so the maximum input and embedding dimensions may vary.
 
-| Model          | Max Input Token | Dimension | Company | Link                                                         |
-| -------------- | --------------- | --------- | ------- | ------------------------------------------------------------ |
-| text-embedding | 8191            | 1536-3072 | OPEN AI | [document](https://platform.openai.com/docs/guides/embeddings) |
-| voyage-2       | 4000~1600       | 1024-1536 | Claude  | [document](https://docs.anthropic.com/en/docs/build-with-claude/embeddings) |
-| Vertex AI      | 3072            | 768       | Google  | [document](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) |
-| bge-large      | 512             | 1024      | Baidu   | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/mllz05nzk) |
-| tao-8k         | 8192            | 1024      | Baidu   | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/7lq0buxys) |
+| Model              | Max Input Token | Dimension | Company | Link                                                         |
+| ------------------ | --------------- | --------- | ------- | ------------------------------------------------------------ |
+| **text-embedding** | 8191            | 1536-3072 | OPEN AI | [document](https://platform.openai.com/docs/guides/embeddings) |
+| **voyage-2**       | 4000~1600       | 1024-1536 | Claude  | [document](https://docs.anthropic.com/en/docs/build-with-claude/embeddings) |
+| **Vertex AI**      | 3072            | 768       | Google  | [document](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) |
+| **bge-large**      | 512             | 1024      | Baidu   | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/mllz05nzk) |
+| **tao-8k**         | 8192            | 1024      | Baidu   | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/7lq0buxys) |
 
 ##### Embedding with open source LLMs
 
 Due to their larger number of parameters, large language models have a superior ability to understand text. Some researchers choose to use the embedding layers of open-source LLMs for document embedding. There are many LLMs available for embedding purposes. More details about LLMs in RAG can be found in [Generation Model](#generation-model) section. Here, we provide an [example](https://github.com/ToneLi/BIoMedRAG/blob/main/0_make_relation_chuck_and_scorer_data/1_get_store_chuck_embeddings_5.py) that uses MedLLaMA as an embedding model.
 
-##### Biomedical Embeddings Models
+##### Biomedical Embedding Models
 
-PubMedBERT
+In many biomedical NLP tasks, language models trained on biomedical-related corpora outperform general-domain language models due to their superior ability to understand biomedical language. Therefore, using a biomedical language model as an embedding model is a common approach to building a semantic retriever. Below, we list some popular biomedical embedding models.
 
-BioBERT
+| Model          | Base | Date | Link                                                         |
+| -------------- | ---- | ---- | ------------------------------------------------------------ |
+| **BioBERT**    | BERT | 2019 | [pdf](https://academic.oup.com/bioinformatics/article/36/4/1234/5566506); [Github](https://github.com/naver/biobert-pretrained) |
+| **PubMedBERT** | BERT | 2021 | [pdf](https://arxiv.org/abs/2007.15779); [Hugging Face](https://huggingface.co/microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext) |
+| **UmlsBERT**   | BERT | 2021 | [pdf](https://aclanthology.org/2021.naacl-main.139.pdf); [Github](https://github.com/gmichalo/UmlsBERT) |
+| **BioBART**    | BART | 2022 | [pdf](https://arxiv.org/abs/2204.03905); [Github](https://github.com/GanjinZero/BioBART) |
+
+More information about biomedical embedding models can be found in Table I of this [survey](https://arxiv.org/abs/2310.05694).
 
 #### Scientific and Biomedical Retriever
 
