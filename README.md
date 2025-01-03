@@ -99,7 +99,7 @@ Thanks to recent advances in Large Language Models, many AI companies now provid
 
 ##### Embedding with open source LLMs
 
-Due to their larger number of parameters, large language models have a superior ability to understand text. Some researchers choose to use the embedding layers of open-source LLMs for document embedding. There are many LLMs available for embedding purposes. More details about LLMs in RAG can be found in [Generation Model](#Generation Model) section. Here, we provide an [example](https://github.com/ToneLi/BIoMedRAG/blob/main/0_make_relation_chuck_and_scorer_data/1_get_store_chuck_embeddings_5.py) that uses MedLLaMA as an embedding model.
+Due to their larger number of parameters, large language models have a superior ability to understand text. Some researchers choose to use the embedding layers of open-source LLMs for document embedding. There are many LLMs available for embedding purposes. More details about LLMs in RAG can be found in [Generation Model](#generation-model) section. Here, we provide an [example](https://github.com/ToneLi/BIoMedRAG/blob/main/0_make_relation_chuck_and_scorer_data/1_get_store_chuck_embeddings_5.py) that uses MedLLaMA as an embedding model.
 
 ##### Biomedical Embeddings Models
 
