@@ -87,7 +87,7 @@ General embedding models are trained on general corpora and are widely used in v
 
 ##### Commercial Embeddings Models
 
-Thanks to recent advances in Large Language Models, many AI companies now provide commercial embedding APIs, which are popular among biomedical researchers and developers. Although these services may be costly, especially with large datasets, their attractive performance has led to widespread use.  The following table lists some popular commercial embedding models. Note that each company offers models of various sizes, so the maximum input and embedding dimensions may vary.
+Thanks to recent advances in Large Language Models, many AI companies now provide commercial embedding APIs, which are popular among biomedical researchers and developers. Although these services may be costly, especially with large datasets, their attractive performance and convenience (call API only, not need for train) has led to widespread use.  The following table lists some popular commercial embedding models. Note that each company offers models of various sizes, so the maximum input and embedding dimensions may vary.
 
 | Model          | Max Input Token | Dimension | Company | Link                                                         |
 | -------------- | --------------- | --------- | ------- | ------------------------------------------------------------ |
@@ -97,9 +97,9 @@ Thanks to recent advances in Large Language Models, many AI companies now provid
 | bge-large      | 512             | 1024      | Baidu   | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/mllz05nzk) |
 | tao-8k         | 8192            | 1024      | Baidu   | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/7lq0buxys) |
 
-##### Embedding with open source LLM
+##### Embedding with open source LLMs
 
-MedLLaMA 13b做embedding embedding层的平均
+Due to their larger number of parameters, large language models have a superior ability to understand text. Some researchers choose to use the embedding layers of open-source LLMs for document embedding. There are many LLMs available for embedding purposes. More details about LLMs in RAG can be found in [Generation Model](#Generation Model) section. Here, we provide an [example](https://github.com/ToneLi/BIoMedRAG/blob/main/0_make_relation_chuck_and_scorer_data/1_get_store_chuck_embeddings_5.py) that uses MedLLaMA as an embedding model.
 
 ##### Biomedical Embeddings Models
 
@@ -116,6 +116,8 @@ SPECTER
 MedCPT
 
 #### Literature
+
+- BiomedRAG: A Retrieval augmented Large Language Model for Biomedicine
 
 ## Ranking Method
 
