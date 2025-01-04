@@ -118,17 +118,20 @@ More information about biomedical embedding models can be found in Table I of th
 
 Although the aforementioned off-the-shelf retrievers are readily available, the task of searching for relevant and accurate documents in the medical domain remains challenging. Consequently, customized retrievers tailored specifically to these tasks have been developed. These advanced retrievers also achieve comparable performance. Here, we introduce some of them.
 
-- **Contriever**: 
+- **Contriever**:  An unsupervised general dense retriever based on contrastive learning. Experiments show that its zero-shot capability (trained on general corpora and applied to new domains) is promising. It is often used as a strong baseline in biomedical RAG.<br>[[pdf]](https://arxiv.org/abs/2112.09118); [[Github]](https://github.com/facebookresearch/contriever)
 
-- **SPECTER**: 
+- **SPECTER**:  A model designed to generate document-level embeddings of scientific documents. It utilizes the citation graph as a training signal to capture inter-document relatedness, showing an advantage in generating document embeddings, particularly for scientific papers. In the biomedical domain, scientific papers are a vital part of external knowledge sources, so using SPECTER as a retriever in biomedical RAG demonstrates comparable performance.<br>[[pdf]](https://arxiv.org/pdf/2004.07180); [[Github]](https://github.com/allenai/specter)
 
 - **MedCPT**: A specialized retriever trained on user click logs from PubMed. It includes a query encoder (QEnc), a document encoder (DEnc), and a ranking model (CrossEnc). The initial embedding model used in MedCPT is PubMedBERT. Contrastive loss is employed to train both the MedCPT retriever (QEnc, DEnc) and the MedCPT ret-ranker (CrossEnc).<br>[[pdf]](https://arxiv.org/abs/2307.00589); [[Github]](https://github.com/ncbi/MedCPT)
+- **MEDRAG toolkit**:  A systematic implementation of RAG for medical QA. It provides a convenient way to search multi-source medical documents. Its retriever consists of four different components, including BM25, Contriever, SPECTER, and MedCPT.<br>[[pdf]](https://aclanthology.org/2024.findings-acl.372.pdf); [[Github]](https://github.com/Teddy-XiongGZ/MedRAG)
 
 #### Literature
 
-- BiomedRAG: A Retrieval augmented Large Language Model for Biomedicine <br>Embedding with open source LLMs, using MedLLaMA 
-- Zero-shot ecg diagnosis with large language models and retrieval-augmented generation<br>Commercial Embedding Models, using  OPEN AI API
-- Chatent: Augmented large language model for expert knowledge retrieval in otolaryngology-head and neck surgery<br>Commercial Embedding Models, using  OPEN AI API
+- BiomedRAG: A Retrieval augmented Large Language Model for Biomedicine [[pdf]](https://arxiv.org/abs/2405.00465) <br>Embedding with open source LLMs, using MedLLaMA 
+- Zero-shot ecg diagnosis with large language models and retrieval-augmented generation [[pdf]](https://proceedings.mlr.press/v225/yu23b/yu23b.pdf)<br>Commercial Embedding Models, using  OPEN AI API
+- Chatent: Augmented large language model for expert knowledge retrieval in otolaryngology-head and neck surgery [[pdf]](https://aao-hnsfjournals.onlinelibrary.wiley.com/doi/full/10.1002/ohn.864)<br>Commercial Embedding Models, using  OPEN AI API
+- Improving Medical Reasoning through Retrieval and Self-Reflection with Retrieval-Augmented [[pdf]](https://arxiv.org/abs/2401.15269)<br>Recent Advanced Retriever, using MedCPT
+- ReMAG-KR: Retrieval and Medically Assisted Generation with KnowledgeReduction for Medical Question Answering [[pdf]](https://aclanthology.org/2024.acl-srw.13.pdf)<br>Recent Advanced Retriever, using MedCPT
 
 ## Ranking Method
 
