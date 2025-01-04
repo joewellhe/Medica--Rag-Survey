@@ -69,7 +69,7 @@ Vector stores are an important component in semantic retrievers, offering effici
 
 #### Embedding-based Retriever
 
-We can construct a semantic retriever by combining an embedding method with a vector store. However, it is crucial to select an appropriate embedding model, as the training corpora of these models vary, leading to differing abilities to encode various types of documents.
+Also called dense retriever. We can construct a semantic retriever by combining an embedding method with a vector store. However, it is crucial to select an appropriate embedding model, as the training corpora of these models vary, leading to differing abilities to encode various types of documents.
 
 ##### General Embedding Models
 
@@ -114,17 +114,21 @@ In many biomedical NLP tasks, language models trained on biomedical-related corp
 
 More information about biomedical embedding models can be found in Table I of this [survey](https://arxiv.org/abs/2310.05694).
 
-#### Scientific and Biomedical Retriever
+#### Recent Advanced Retriever
 
-Contriever
+Although the aforementioned off-the-shelf retrievers are readily available, the task of searching for relevant and accurate documents in the medical domain remains challenging. Consequently, customized retrievers tailored specifically to these tasks have been developed. These advanced retrievers also achieve comparable performance. Here, we introduce some of them.
 
-SPECTER
+- **Contriever**: 
 
-MedCPT
+- **SPECTER**: 
+
+- **MedCPT**: A specialized retriever trained on user click logs from PubMed. It includes a query encoder (QEnc), a document encoder (DEnc), and a ranking model (CrossEnc). The initial embedding model used in MedCPT is PubMedBERT. Contrastive loss is employed to train both the MedCPT retriever (QEnc, DEnc) and the MedCPT ret-ranker (CrossEnc).<br>[[pdf]](https://arxiv.org/abs/2307.00589); [[Github]](https://github.com/ncbi/MedCPT)
 
 #### Literature
 
-- BiomedRAG: A Retrieval augmented Large Language Model for Biomedicine
+- BiomedRAG: A Retrieval augmented Large Language Model for Biomedicine <br>Embedding with open source LLMs, using MedLLaMA 
+- Zero-shot ecg diagnosis with large language models and retrieval-augmented generation<br>Commercial Embedding Models, using  OPEN AI API
+- Chatent: Augmented large language model for expert knowledge retrieval in otolaryngology-head and neck surgery<br>Commercial Embedding Models, using  OPEN AI API
 
 ## Ranking Method
 
