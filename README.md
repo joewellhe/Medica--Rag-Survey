@@ -147,7 +147,7 @@ Reciprocal Rank Fusion (RRF) [[pdf]](https://plg.uwaterloo.ca/~gvcormac/cormacks
 
 #### Trained Scorer & Distilled Scorer from LLM
 
-Some choose to train a neural-network-based scorer model to rank retrieval results according to specific criteria. This approach requires an additional dataset to train a model that can evaluate documents based on different criteria.
+Some choose to train a neural-network-based scorer model to rank retrieval results according to specific criteria. This approach requires an additional dataset to train a model that can evaluate documents based on different criteria. We introduce some datasets used to train a ranking scorer in the [Dataset](https://chat.chatbotapp.ai/chats/-OFoQ0KIui2T-mZwck6U?model=gpt-4#dataset) section.
 
 Additionally, since large models like ChatGPT have strong evaluation capabilities, some developers opt to use large language models (LLMs) as scorers to filter relevant documents. However, because LLMs can be costly to run, distilling a model from an LLM can also be a good option.
 
@@ -158,6 +158,35 @@ Additionally, since large models like ChatGPT have strong evaluation capabilitie
 - BiomedRAG：A retrieval augmented large language model for biomedicine [[pdf]](https://arxiv.org/abs/2405.00465)<br>distilled scorer from LLM, its Tailored Chunk Scorer is trained to align with the LLM.
 
 ## Generation Model
+
+Generation, based on the references found by the retriever and the prompt, is a key step in providing the final response to the user. Large language models (LLMs) are often used as the generation component. There are a substantial number of LLMs available for biomedical RAG. We categorize these LLMs into three different types and list some widely used LLMs for each.
+
+### General domain open source LLMs
+
+| Model      | Para Size | Link                                                         |
+| ---------- | --------- | ------------------------------------------------------------ |
+| T5         | 0.06-11B  | [[Github]](https://github.com/google-research/text-to-text-transfer-transformer); [[Checkpoints]](https://huggingface.co/google/flan-t5-xxl) |
+| ChatGLM3   | 6B        | [[Github]](https://github.com/THUDM/ChatGLM3/blob/main/README_en.md); [[Checkpoints]](https://huggingface.co/THUDM/chatglm3-6b) |
+| OpenLLaMA  | 3,7,13B   | [[Github]](https://github.com/openlm-research/open_llama); [[Checkpoints]](https://huggingface.co/openlm-research/open_llama_7b) |
+| LLaMA 2    | 7-70B     | [[Download Link]](https://www.llama.com/llama-downloads)     |
+| LLaMA 3    | 8-70B     | [[Introduction]](https://ai.meta.com/blog/meta-llama-3/); [[Checkpoints]](https://huggingface.co/meta-llama/Meta-Llama-3-8B) |
+| MPT-7B     | 7B        | [[Introduction]](https://www.databricks.com/blog/mpt-7b); [[Checkpoints]](https://huggingface.co/mosaicml/mpt-7b) |
+| Phi-3 Mini | 3.8B      | [[pdf]](https://arxiv.org/abs/2404.14219); [[Checkpoints]](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct) |
+| Mistral 7B | 7B        | [[Introduction]](https://mistral.ai/news/announcing-mistral-7b/); [[Checkpoints]](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) |
+
+### General domain commercial LLMs
+
+| Model | Company | Link |
+| ----- | ------- | ---- |
+|       |         |      |
+|       |         |      |
+|       |         |      |
+
+
+
+### Biomedical domain open source LLMs
+
+
 
 ## Knowledge Source
 
