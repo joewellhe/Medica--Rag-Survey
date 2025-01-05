@@ -114,7 +114,7 @@ In many biomedical NLP tasks, language models trained on biomedical-related corp
 
 More information about biomedical embedding models can be found in Table I of this [survey](https://arxiv.org/abs/2310.05694).
 
-#### Recent Advanced Retriever
+### Recent Advanced Retriever
 
 Although the aforementioned off-the-shelf retrievers are readily available, the task of searching for relevant and accurate documents in the medical domain remains challenging. Consequently, customized retrievers tailored specifically to these tasks have been developed. These advanced retrievers also achieve comparable performance. Here, we introduce some of them.
 
@@ -135,7 +135,27 @@ Although the aforementioned off-the-shelf retrievers are readily available, the 
 
 ## Ranking Method
 
-Reciprocal Rank Fusion
+Actually, most of the aforementioned retrievers , e.g., BM25,  can provide a score for each retrieved document, allowing us to rank these documents based on their retrieval scores. However, for tasks in the biomedical domain, ranking may involve additional considerations. For instance, in the [2021 TREC Healthcare Misinformation Track](https://trec-health-misinfo.github.io/2021.html), a retrieved document is assessed based on three criteria: *Usefulness*, *Supportiveness*, and *Credibility*.
+
+> *Usefulness*: The extent to which the document contains information that a search user would find useful in answering the topic’s question.<br>*Supportiveness*: Does the document support or dissuade the use of the treatment in the topic’s question<br>*Credibility*: whether the document is considered credible by the assessor.
+
+ A good ranking method can accurately identify the rationale behind a user's query while filtering out noise and toxic information. Here, we introduce some practices.
+
+#### Reciprocal Rank Fusion
+
+Reciprocal Rank Fusion (RRF) [[pdf]](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf) is an algorithm that evaluates search scores from multiple, previously ranked result sets to produce a unified result set. RRF can be utilized when using multiple retrievers, and you want to combine their results into a single ranking. This approach gives higher weight to documents that are ranked highly in at least one list, even if they aren't ranked as highly in others. 
+
+#### Trained Scorer & Distilled Scorer from LLM
+
+Some choose to train a neural-network-based scorer model to rank retrieval results according to specific criteria. This approach requires an additional dataset to train a model that can evaluate documents based on different criteria.
+
+Additionally, since large models like ChatGPT have strong evaluation capabilities, some developers opt to use large language models (LLMs) as scorers to filter relevant documents. However, because LLMs can be costly to run, distilling a model from an LLM can also be a good option.
+
+#### Literature
+
+- Benchmarking retrieval augmented generation for medicine [[pdf]](https://aclanthology.org/2024.findings-acl.372.pdf)<br>the aforementioned MEDRAG toolkit, using RRF to incorporate its four retrievers
+- Online Health Search Via Multidimensional Information Quality Assessment Based on Deep Language Models: Algorithm Development and Validation [[pdf]](https://pmc.ncbi.nlm.nih.gov/articles/PMC11099810/pdf/ai_v3i1e42630.pdf) <br>trained scorer, utilizing BERT as the backbone model, using three additional datasets to evaluate documents based on *Usefulness*, *Supportiveness*, and *Credibility*, RRF is then used to obtain the final score.
+- BiomedRAG：A retrieval augmented large language model for biomedicine [[pdf]](https://arxiv.org/abs/2405.00465)<br>distilled scorer from LLM, its Tailored Chunk Scorer is trained to align with the LLM.
 
 ## Generation Model
 
