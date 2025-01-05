@@ -89,13 +89,13 @@ General embedding models are trained on general corpora and are widely used in v
 
 Thanks to recent advances in Large Language Models, many AI companies now provide commercial embedding APIs, which are popular among biomedical researchers and developers. Although these services may be costly, especially with large datasets, their attractive performance and convenience (call API only, not need for train) has led to widespread use.  The following table lists some popular commercial embedding models. Note that each company offers models of various sizes, so the maximum input and embedding dimensions may vary.
 
-| Model              | Max Input Token | Dimension | Company | Link                                                         |
-| ------------------ | --------------- | --------- | ------- | ------------------------------------------------------------ |
-| **text-embedding** | 8191            | 1536-3072 | OPEN AI | [document](https://platform.openai.com/docs/guides/embeddings) |
-| **voyage-2**       | 4000~1600       | 1024-1536 | Claude  | [document](https://docs.anthropic.com/en/docs/build-with-claude/embeddings) |
-| **Vertex AI**      | 3072            | 768       | Google  | [document](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) |
-| **bge-large**      | 512             | 1024      | Baidu   | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/mllz05nzk) |
-| **tao-8k**         | 8192            | 1024      | Baidu   | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/7lq0buxys) |
+| Model              | Max Input Token | Dimension | Company   | Link                                                         |
+| ------------------ | --------------- | --------- | --------- | ------------------------------------------------------------ |
+| **text-embedding** | 8191            | 1536-3072 | OPEN AI   | [document](https://platform.openai.com/docs/guides/embeddings) |
+| **voyage-2**       | 4000~1600       | 1024-1536 | Anthropic | [document](https://docs.anthropic.com/en/docs/build-with-claude/embeddings) |
+| **Vertex AI**      | 3072            | 768       | Google    | [document](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) |
+| **bge-large**      | 512             | 1024      | Baidu     | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/mllz05nzk) |
+| **tao-8k**         | 8192            | 1024      | Baidu     | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/7lq0buxys) |
 
 ##### Embedding with open source LLMs
 
@@ -147,7 +147,7 @@ Reciprocal Rank Fusion (RRF) [[pdf]](https://plg.uwaterloo.ca/~gvcormac/cormacks
 
 #### Trained Scorer & Distilled Scorer from LLM
 
-Some choose to train a neural-network-based scorer model to rank retrieval results according to specific criteria. This approach requires an additional dataset to train a model that can evaluate documents based on different criteria. We introduce some datasets used to train a ranking scorer in the [Dataset](https://chat.chatbotapp.ai/chats/-OFoQ0KIui2T-mZwck6U?model=gpt-4#dataset) section.
+Some choose to train a neural-network-based scorer model to rank retrieval results according to specific criteria. This approach requires an additional dataset to train a model that can evaluate documents based on different criteria. We introduce some datasets used to train a ranking scorer in the [Dataset](#dataset) section.
 
 Additionally, since large models like ChatGPT have strong evaluation capabilities, some developers opt to use large language models (LLMs) as scorers to filter relevant documents. However, because LLMs can be costly to run, distilling a model from an LLM can also be a good option.
 
@@ -163,30 +163,38 @@ Generation, based on the references found by the retriever and the prompt, is a 
 
 ### General domain open source LLMs
 
-| Model      | Para Size | Link                                                         |
-| ---------- | --------- | ------------------------------------------------------------ |
-| T5         | 0.06-11B  | [[Github]](https://github.com/google-research/text-to-text-transfer-transformer); [[Checkpoints]](https://huggingface.co/google/flan-t5-xxl) |
-| ChatGLM3   | 6B        | [[Github]](https://github.com/THUDM/ChatGLM3/blob/main/README_en.md); [[Checkpoints]](https://huggingface.co/THUDM/chatglm3-6b) |
-| OpenLLaMA  | 3,7,13B   | [[Github]](https://github.com/openlm-research/open_llama); [[Checkpoints]](https://huggingface.co/openlm-research/open_llama_7b) |
-| LLaMA 2    | 7-70B     | [[Download Link]](https://www.llama.com/llama-downloads)     |
-| LLaMA 3    | 8-70B     | [[Introduction]](https://ai.meta.com/blog/meta-llama-3/); [[Checkpoints]](https://huggingface.co/meta-llama/Meta-Llama-3-8B) |
-| MPT-7B     | 7B        | [[Introduction]](https://www.databricks.com/blog/mpt-7b); [[Checkpoints]](https://huggingface.co/mosaicml/mpt-7b) |
-| Phi-3 Mini | 3.8B      | [[pdf]](https://arxiv.org/abs/2404.14219); [[Checkpoints]](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct) |
-| Mistral 7B | 7B        | [[Introduction]](https://mistral.ai/news/announcing-mistral-7b/); [[Checkpoints]](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) |
+| Model      | Param Size | Link                                                         |
+| ---------- | ---------- | ------------------------------------------------------------ |
+| T5         | 0.06-11B   | [[Github]](https://github.com/google-research/text-to-text-transfer-transformer); [[Checkpoints]](https://huggingface.co/google/flan-t5-xxl) |
+| ChatGLM3   | 6B         | [[Github]](https://github.com/THUDM/ChatGLM3/blob/main/README_en.md); [[Checkpoints]](https://huggingface.co/THUDM/chatglm3-6b) |
+| OpenLLaMA  | 3,7,13B    | [[Github]](https://github.com/openlm-research/open_llama); [[Checkpoints]](https://huggingface.co/openlm-research/open_llama_7b) |
+| LLaMA 2    | 7-70B      | [[Download Link]](https://www.llama.com/llama-downloads)     |
+| LLaMA 3    | 8-70B      | [[Introduction]](https://ai.meta.com/blog/meta-llama-3/); [[Checkpoints]](https://huggingface.co/meta-llama/Meta-Llama-3-8B) |
+| MPT-7B     | 7B         | [[Introduction]](https://www.databricks.com/blog/mpt-7b); [[Checkpoints]](https://huggingface.co/mosaicml/mpt-7b) |
+| Phi-3 Mini | 3.8B       | [[pdf]](https://arxiv.org/abs/2404.14219); [[Checkpoints]](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct) |
+| Mistral 7B | 7B         | [[Introduction]](https://mistral.ai/news/announcing-mistral-7b/); [[Checkpoints]](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) |
 
 ### General domain commercial LLMs
 
-| Model | Company | Link |
-| ----- | ------- | ---- |
-|       |         |      |
-|       |         |      |
-|       |         |      |
-
-
+| Model         | Company   | Link                                                         |
+| ------------- | --------- | ------------------------------------------------------------ |
+| ChatGPT-3.5/4 | Open AI   | [document](https://platform.openai.com/docs/guides/text-generation) |
+| Claude-3.5    | Anthropic | [document](https://docs.anthropic.com/en/docs/initial-setup) |
+| Gemini-2.0    | Google    | [document](https://ai.google.dev/gemini-api/docs/text-generation?_gl=1*1r6va2r*_up*MQ..&gclid=CjwKCAiA-Oi7BhA1EiwA2rIu27s6RlSJVB5_XHyxeK2DaMLw4qKFbOTMasf_cvdwFvvcDtfuMAuY0BoCxnwQAvD_BwE&lang=python) |
+| ERNIE-4       | Baidu     | [document](https://cloud.baidu.com/doc/WENXINWORKSHOP/s/clntwmv7t) |
 
 ### Biomedical domain open source LLMs
 
+| Model        | Base    | Param Size | Link                                                         |
+| ------------ | ------- | ---------- | ------------------------------------------------------------ |
+| ChatDoctor   | LLaMA   | 7B         | [[Github]](https://github.com/Kent0n-Li/ChatDoctor)          |
+| MedAlpaca    | LLaMA   | 7, 13B     | [[Github]](https://github.com/kbressem/medAlpaca)            |
+| PMC-LLaMA    | LLaMA   | 7B         | [[Github]](https://github.com/chaoyi-wu/PMC-LLaMA)           |
+| GatorTronGPT | GPT-3   | 5, 20B     | [[Github]](https://github.com/uf-hobi-informatics-lab/GatorTronGPT) |
+| BioMistral   | Mistral | 7B         | [[Hugging Face]](https://huggingface.co/BioMistral/BioMistral-7B) |
+| MEDITRON     | LLaMA   | 7,70B      | [[Webpage]](https://www.meditron.io/); [[Hugging Face]](https://huggingface.co/epfl-llm/meditron-70b) |
 
+As answering user questions primarily relies on the generative capabilities of LLMs, we only list LLMs that are good at generation and can serve as backbone models for biomedical RAG. 
 
 ## Knowledge Source
 
