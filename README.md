@@ -1,4 +1,4 @@
-# A Survey on Medical and Healthcare RAG: Recent Advances and New Frontiers
+# A Survey on Biomedical RAG: Recent Advances and New Frontiers
 
 This repository provides a comprehensive survey on the application of Retrieval Augmented Generation (RAG) in the medical and healthcare domains. We present the basic framework of medical RAG, detailing its commonly used components, datasets, and evaluation methods. Additionally, we've compiled a collection of state-of-the-art (SOTA) approaches and highlighted some literature that explores new frontiers in this field. We are committed to regularly updating this repository and welcome any feedback or suggestions.
 
@@ -200,7 +200,7 @@ As answering user questions primarily relies on the generative capabilities of L
 
 Data quality of knowledge sources is crucial for large language models (LLMs) to effectively answer medical questions. Here, we list some valuable knowledge sources, including medical research articles, clinical guidelines, textbooks, drug databases, and knowledge graphs. Practice shows that increasing the number of knowledge sources does not always lead to improvement. Therefore, we should select appropriate knowledge sources based on the specific problem at hand. 
 
-- **PubMed **is the most widely used literature resource, containing over 36 million biomedical research articles. Many relevant studies solely use PubMed as the retrieval corpus.<br>link: https://pubmed.ncbi.nlm.nih.gov/
+- **PubMed** is the most widely used literature resource, containing over 36 million biomedical research articles. Many relevant studies solely use PubMed as the retrieval corpus.<br>link: https://pubmed.ncbi.nlm.nih.gov/
 
 - **StatPearls** is a point-of-care clinical decision support tool. There are 9,330 publicly available StatPearls articles accessible through NCBI Bookshelf.<br>link: https://www.ncbi.nlm.nih.gov/books/NBK430685/.
 
@@ -208,7 +208,7 @@ Data quality of knowledge sources is crucial for large language models (LLMs) to
 
 - **DrugBank** is a comprehensive and freely accessible online database containing information on drugs and drug targets. It integrates detailed drug data (chemical, pharmacological, and pharmaceutical) with comprehensive information on drug targets (sequence, structure, and pathway). <br>link: https://go.drugbank.com/releases/latest
 
-- **Medical Subject Headings (MeSH) **is a comprehensive controlled collection for indexing journal articles and books in the life sciences. It organizes information on biomedical and health-related topics into a hierarchical structure. <br>link: https://www.nlm.nih.gov/databases/download/mesh.html
+- **Medical Subject Headings (MeSH)** is a comprehensive controlled collection for indexing journal articles and books in the life sciences. It organizes information on biomedical and health-related topics into a hierarchical structure. <br>link: https://www.nlm.nih.gov/databases/download/mesh.html
 
 - **PrimeKG** offers a comprehensive overview of diseases, medications, side effects, and proteins by merging 20 biomedical sources to detail 17,080 diseases across ten biological levels. <br>link: https://github.com/mims-harvard/PrimeKG <br>[Xu et al.](https://aclanthology.org/2024.acl-short.68/) provide a template for converting a knowledge graph (KG) into sentences as follows:
 
@@ -229,7 +229,7 @@ Data quality of knowledge sources is crucial for large language models (LLMs) to
 
 - **Wikipedia** is  a large-scale open-source encyclopedia, which frequently used as a general domain corpus  in information retrieval tasks. <br>link: https://huggingface.co/datasets/legacy-datasets/wikipedia
 
-Among these knowledge sources, [Xiong et al.](https://aclanthology.org/2024.findings-acl.372/) provide a biomedical knowledge corpus called MedCorp, which combines documents from PubMed, StatPearls, textbooks, and Wikipedia. You can find more information about this corpus at the following link: https://huggingface.co/MedRAG.
+Among these knowledge sources, [Xiong et al.](https://aclanthology.org/2024.findings-acl.372/) provide a biomedical knowledge corpus called **MedCorp**, which combines documents from PubMed, StatPearls, textbooks, and Wikipedia. You can find more information about this corpus at the following link: https://huggingface.co/MedRAG.
 
 ## Dataset
 
