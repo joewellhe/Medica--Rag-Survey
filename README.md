@@ -227,9 +227,9 @@ Data quality of knowledge sources is crucial for large language models (LLMs) to
   }
   ```
 
-- **Wikipedia **is  a large-scale open-source encyclopedia, which frequently used as a general domain corpus  in information retrieval tasks. <br>link: https://huggingface.co/datasets/legacy-datasets/wikipedia
+- **Wikipedia** is  a large-scale open-source encyclopedia, which frequently used as a general domain corpus  in information retrieval tasks. <br>link: https://huggingface.co/datasets/legacy-datasets/wikipedia
 
-Among these knowledge sources, Xiong et al. provide a biomedical knowledge corpus called MedCorp, which combines documents from PubMed, StatPearls, textbooks, and Wikipedia. You can find more information about this corpus at the following link: https://huggingface.co/MedRAG.
+Among these knowledge sources, [Xiong et al.](https://aclanthology.org/2024.findings-acl.372/) provide a biomedical knowledge corpus called MedCorp, which combines documents from PubMed, StatPearls, textbooks, and Wikipedia. You can find more information about this corpus at the following link: https://huggingface.co/MedRAG.
 
 ## Dataset
 
