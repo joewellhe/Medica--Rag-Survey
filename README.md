@@ -233,6 +233,51 @@ Among these knowledge sources, [Xiong et al.](https://aclanthology.org/2024.find
 
 ## Dataset
 
+In this section, we introduce some datasets that can be used to evaluate the performance of biomedical retrieval-augmented generation (RAG) systems. As mentioned before, RAG consists of a retriever, a ranking method, and a generation model. For comprehensive evaluation, we have collected two types of datasets: those for biomedical information retrieval (IR) tasks and those for biomedical downstream tasks. The former focuses on evaluating retrievers and ranking methods, while the latter, which includes tasks such as information extraction, question answering (QA), multiple-choice evaluation, dialogue, and text summarization, assesses the performance of the entire biomedical RAG system on biomedical tasks.
+
+### Biomedical Information Retrieval (IR) Tasks
+
+| Dataset    | Year | Link                                                         |
+| ---------- | ---- | ------------------------------------------------------------ |
+| TREC-COVID | 2021 | [[pdf]](https://arxiv.org/abs/2005.04474); [[Wegpage]](https://ir.nist.gov/trec-covid/data.html) |
+| BioASQ     | 2015 | [[pdf]](https://www.researchgate.net/publication/275639796_An_overview_of_the_BIOASQ_large-scale_biomedical_semantic_indexing_and_question_answering_competition); [[Wegpage]](http://participants-area.bioasq.org/datasets/) |
+| SciFact    | 2020 | [[pdf]](https://aclanthology.org/2020.emnlp-main.609/); [[Hugging Face]](https://huggingface.co/datasets/allenai/scifact) |
+| NFCorpus   | 2016 | [[pdf]](https://www.cl.uni-heidelberg.de/~riezler/publications/papers/ECIR2016.pdf); [[Wegpage]](https://www.cl.uni-heidelberg.de/statnlpgroup/nfcorpus/) |
+| SciDocs    | 2020 | [[pdf]](https://arxiv.org/pdf/2004.07180); [[Github]](https://github.com/allenai/scidocs) |
+
+### Biomedical Downstream Tasks
+
+#### Medical Information Extraction
+
+| **Dataset** | Year | Task                    | Link                                                         |
+| ----------- | ---- | ----------------------- | ------------------------------------------------------------ |
+| GENIA       | 2003 | Entity Recognition      | [[pdf]](https://www.researchgate.net/publication/10667350_GENIA_corpus-A_semantically_annotated_corpus_for_bio-textmining); [[Hugging Face]](https://huggingface.co/datasets/Rosenberg/genia) |
+| GENIA11     | 2011 | Event Extraction        | [[pdf]](https://aclanthology.org/W11-1802/); [[Webpage]](https://2011.bionlp-st.org/bionlp-shared-task-2011/genia-event-extraction-genia) |
+| ADE         | 2012 | Relationship Extraction | [[pdf]](https://www.sciencedirect.com/science/article/pii/S1532046412000615?via%3Dihub); [[WebPage]](https://ade20k.csail.mit.edu/) |
+| ShARe13     | 2013 | Entity Recognition      | [[pdf]](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=7dfb97a2b878673e67062eeab0ba1871eae9a893) |
+| GENIA13     | 2013 | Event Extraction        | [[pdf]](https://aclanthology.org/W13-2002/);[[Webpage]](https://bmcbioinformatics.biomedcentral.com/articles/supplements/volume-16-supplement-10) |
+| NCBI        | 2014 | Entity Recognition      | [[pdf]](https://www.sciencedirect.com/science/article/pii/S1532046413001974); [[Wegpage]](https://www.ncbi.nlm.nih.gov/research/bionlp/Data/disease/) |
+| ShARe14     | 2014 | Entity Recognition      | [[pdf]](https://ceur-ws.org/Vol-1180/CLEF2014wn-eHealth-MoweryEt2014.pdf); [[Webpage]](https://clefehealth.imag.fr/clefehealth.imag.fr/index.html) |
+| CADEC       | 2015 | Entity Recognition      | [[pdf]](https://www.sciencedirect.com/science/article/pii/S1532046415000532); [[Webpage]](https://data.csiro.au/collection/csiro:10948?v=3&d=true) |
+| BC5CDR      | 2016 | Entity Recognition      | [[pdf]](https://academic.oup.com/database/article/doi/10.1093/database/baw068/2630414); [[Hugging Face]](https://huggingface.co/datasets/bigbio/bc5cdr) |
+| PHEE        | 2022 | Event Extraction        | [[pdf]](https://arxiv.org/abs/2210.12560); [[Github]](https://github.com/zhaoyuesun/phee) |
+
+
+
+
+
+Multiple-choice
+
+MedQA
+
+MedMCQA
+
+PubMedQA
+
+QA
+
+*Med-Gen
+
 ## Evaluation Method
 
 ## Frontiers
