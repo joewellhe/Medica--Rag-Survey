@@ -235,6 +235,8 @@ Among these knowledge sources, [Xiong et al.](https://aclanthology.org/2024.find
 
 In this section, we introduce some datasets that can be used to evaluate the performance of biomedical retrieval-augmented generation (RAG) systems. As mentioned before, RAG consists of a retriever, a ranking method, and a generation model. For comprehensive evaluation, we have collected two types of datasets: those for biomedical information retrieval (IR) tasks and those for biomedical downstream tasks. The former focuses on evaluating retrievers and ranking methods, while the latter, which includes tasks such as information extraction, question answering (QA), multiple-choice evaluation, dialogue, and text summarization, assesses the performance of the entire biomedical RAG system on biomedical tasks.
 
+Because our primary focus is on evaluating biomedical RAG systems, we have not included datasets for training or fine-tuning large language models (LLMs) here.
+
 ### Biomedical Information Retrieval (IR) Tasks
 
 | Dataset    | Year | Link                                                         |
@@ -244,6 +246,8 @@ In this section, we introduce some datasets that can be used to evaluate the per
 | SciFact    | 2020 | [[pdf]](https://aclanthology.org/2020.emnlp-main.609/); [[Hugging Face]](https://huggingface.co/datasets/allenai/scifact) |
 | NFCorpus   | 2016 | [[pdf]](https://www.cl.uni-heidelberg.de/~riezler/publications/papers/ECIR2016.pdf); [[Wegpage]](https://www.cl.uni-heidelberg.de/statnlpgroup/nfcorpus/) |
 | SciDocs    | 2020 | [[pdf]](https://arxiv.org/pdf/2004.07180); [[Github]](https://github.com/allenai/scidocs) |
+
+Additionally, some researchers invite professional physicians to evaluate the relevance between retrieval results and the questions, although this approach can be somewhat costly. An alternative method is to use powerful commercial LLMs like ChatGPT or open-source medical LLMs like MEDITRON to assess this relevance. If using this approach, it is important to design an effective prompt.
 
 ### Biomedical Downstream Tasks
 
@@ -262,23 +266,41 @@ In this section, we introduce some datasets that can be used to evaluate the per
 | BC5CDR      | 2016 | Entity Recognition      | [[pdf]](https://academic.oup.com/database/article/doi/10.1093/database/baw068/2630414); [[Hugging Face]](https://huggingface.co/datasets/bigbio/bc5cdr) |
 | PHEE        | 2022 | Event Extraction        | [[pdf]](https://arxiv.org/abs/2210.12560); [[Github]](https://github.com/zhaoyuesun/phee) |
 
+#### Medical Question Answering
 
+| **Dataset**                 | Year | Task                 | Link                                                         |
+| --------------------------- | ---- | -------------------- | ------------------------------------------------------------ |
+| MedQA                       | 2021 | Multiple-choice      | [[pdf]](https://arxiv.org/abs/2009.13081); [[Github]](https://github.com/jind11/MedQA) |
+| MedMCQA                     | 2022 | Multiple-choice      | [[pdf]](https://arxiv.org/abs/2203.14371); [[Github]](https://medmcqa.github.io/) |
+| PubMedQA                    | 2019 | Multiple-choice      | [[pdf]](https://aclanthology.org/D19-1259/); [[Github]](https://pubmedqa.github.io/) |
+| MMLU                        | 2021 | Multiple-choice      | [[pdf];](https://arxiv.org/abs/2009.03300) [[Github]](https://github.com/hendrycks/test) |
+| MedicationQA                | 2019 | QA                   | [[pdf]](https://www.researchgate.net/publication/335382159_Bridging_the_Gap_Between_Consumers'_Medication_Questions_and_Trusted_Answers); [[Github]](https://github.com/abachaa/Medication_QA_MedInfo2019) |
+| MedQuAD                     | 2019 | QA                   | [[pdf]](https://arxiv.org/abs/1901.08079); [[Github]](https://github.com/abachaa/MedQuAD) |
+| HealthSearchQA              | 2022 | QA                   | [[pdf]](https://arxiv.org/abs/2212.13138)                    |
+| emrQA                       | 2018 | QA                   | [[pdf]](https://aclanthology.org/D18-1258/); [[Github]](https://emrqa.github.io/) |
+| MEDIQA                      | 2020 | Dialogue             | [[pdf]](https://arxiv.org/abs/2005.09067); [[Hugging Face]](https://huggingface.co/datasets/medalpaca/medical_meadow_wikidoc_patient_information) |
+| CORD-19                     | 2020 | Dialogue             | [[pdf]](https://aclanthology.org/2020.nlpcovid19-acl.1/); [[Hugging Face]](https://huggingface.co/datasets/medalpaca/medical_meadow_cord19) |
+| ChatDoctor                  | 2023 | Dialogue             | [[pdf]](https://arxiv.org/abs/2303.14070); [[Github]](https://github.com/Kent0n-Li/ChatDoctor) |
+| Wikidoc Patient Information | 2023 | Dialogue             | [[Hugging Face]](https://huggingface.co/datasets/medalpaca/medical_meadow_wikidoc_patient_information) |
+| Medical Flashcards          | 2023 | Dialogue             | [[Github]](https://github.com/kbressem/medalpaca)            |
+| Wikidoc                     | 2023 | Dialogue             | [[Hugging Face]](https://huggingface.co/datasets/medalpaca/medical_meadow_wikidoc) |
+| MIRAGE                      | 2024 | Multiple-choice & QA | [[pdf]](https://aclanthology.org/2024.findings-acl.372/); [[Github]](https://github.com/Teddy-XiongGZ/MIRAGE) |
 
+#### Medical Generation
 
-
-Multiple-choice
-
-MedQA
-
-MedMCQA
-
-PubMedQA
-
-QA
-
-*Med-Gen
+| **Dataset**   | Year   | Task               | Link                                                         |
+| ------------- | ------ | ------------------ | ------------------------------------------------------------ |
+| MIMIC-III     | 2016   | Text Summarization | [[pdf]](https://www.nature.com/articles/sdata201635); [[Webpage]](https://physionet.org/content/mimiciii/1.4/) |
+| MIMIC-CXR     | 2019   | Text Summarization | [[pdf]](https://www.nature.com/articles/s41597-019-0322-0); [[Webpage]](https://physionet.org/content/mimic-cxr/2.0.0/) |
+| MeQSum        | 2019   | Text Summarization | [[pdf]](https://aclanthology.org/P19-1215/); [[Github]](https://www.nature.com/articles/s41597-019-0322-0) |
+| CORD-19       | 2020   | Text Summarization | [[pdf]](https://arxiv.org/abs/2004.10706); [[Github]](https://aclanthology.org/P19-1215/) |
+| MentSum       | 2022   | Text Summarization | [[pdf]](https://aclanthology.org/2022.lrec-1.287/); [[Webpage]](https://ir.cs.georgetown.edu/resources/) |
+| MultiCochrane | 2023   | Text Summarization | [[pdf]](https://aclanthology.org/2023.emnlp-main.1037/); [[Github]](https://github.com/SebaJoe/MultiCochrane) |
+| PMC           | Update | Text Summarization | [[Webpage]](https://pmc.ncbi.nlm.nih.gov/tools/textmining/)  |
 
 ## Evaluation Method
+
+
 
 ## Frontiers
 
