@@ -2,8 +2,6 @@
 
 This repository provides a comprehensive survey on the application of Retrieval Augmented Generation (RAG) in the medical and healthcare domains. We present the basic framework of medical RAG, detailing its commonly used components, datasets, and evaluation methods. Additionally, we've compiled a collection of state-of-the-art (SOTA) approaches and highlighted some literature that explores new frontiers in this field. We are committed to regularly updating this repository and welcome any feedback or suggestions.
 
-[TOC]
-
 ## Introduction
 
 With the emergence of large language models (LLMs) in recent years, numerous natural language processing (NLP) tasks have seen remarkable advancements. Their impressive capabilities in generating and understanding human-like text have resulted in outstanding performance in tasks such as summarization, question answering, information retrieval, and more. The exceptional performance of LLMs in core NLP tasks is prompting their exploration in the medical domain, ranging from aiding clinicians in making more accurate decisions to enhancing patient care quality and clinical outcomes. 
@@ -302,7 +300,28 @@ Additionally, some researchers invite professional physicians to evaluate the re
 
 ## Evaluation Method
 
+Here, we list some evaluation metrics used to assess RAG in different tasks. According to the task, we divide these metrics into supervised metrics and unsupervised metrics.
 
+####  Supervised Metrics
+
+| Task                       | Metric                                                       |
+| -------------------------- | ------------------------------------------------------------ |
+| Text Classification        | Accuracy, Recall, Precision, F1 Score, ROC Curve, AUC Value  |
+| Named Entity Recognition   | Precision, Recall, F1 Score, Span-Level Metrics, Entity Type Level Metrics |
+| Question Answering Systems | EM (Exact Match), F1 Score, Mean Reciprocal Rank (MRR), Hits@k |
+| Information Retrieval      | NDCG@k, MAP@k                                                |
+
+#### Unsupervised Metrics
+
+For unsupervised tasks like text generation and text summarization, traditional methods often use lexical-level metrics such as **BLEU**, **ROUGE**, [**METEOR**](https://aclanthology.org/W05-0909/),  [**GoogleBLEU**](https://pmc.ncbi.nlm.nih.gov/), and [**chrF**](https://aclanthology.org/W15-3049/).  These metrics primarily assess the quality of results by checking vocabulary matches between candidate and reference texts. However, **[BERTScore](https://arxiv.org/abs/1904.09675)** has become increasingly popular because it evaluates the semantic relevance between the candidate document and the reference from a semantic perspective. This means BERTScore leverages the semantic representation capabilities of deep learning models like BERT to provide a deeper understanding of the semantic similarity in the texts, thus offering more comprehensive evaluation results.
+
+#### Source-Augmented Metrics
+
+Source-Augmented (SA) metrics additionally consider relevant context to evaluate the quality of model-generated outputs. These metrics go beyond comparing the generated text to reference outputs by considering how well the generated content aligns with the source content in terms of meaning, context, and information.  Here we list some SA metrics.
+
+- **[UniEval (T5-large)](https://aclanthology.org/2022.emnlp-main.131/)**: UniEval uses the T5-large model, a powerful text-to-text transformer, to assess various dimensions of generated text, including fluency, coherence, and informativeness. Its capacity to evaluate multiple facets makes it effective for comprehensive analyses of text outputs.
+- **[COMET (XLM-RoBERTa)](https://aclanthology.org/2020.emnlp-main.213/)**: COMET leverages the XLM-RoBERTa model, which is a multilingual pretrained transformer, to improve translation task evaluations. By capturing semantic nuances across various languages, COMET offers more reliable assessments of cross-lingual semantic similarity and translation quality.
+- **[CTC Summary Consistency (BERT)](https://aclanthology.org/2021.emnlp-main.599/)**: This metric uses BERT to evaluate the consistency of summaries, ensuring they maintain semantic alignment and coherence with the source text. It provides a measure of semantic fidelity in text summarization, enhancing the evaluation beyond basic lexical consistency.
 
 ## Frontiers
 
