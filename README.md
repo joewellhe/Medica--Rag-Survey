@@ -325,3 +325,17 @@ Source-Augmented (SA) metrics additionally consider relevant context to evaluate
 
 ## Frontiers
 
+- **[To Generate or to Retrieve? On the Effectiveness of Artificial Contexts for Medical Open-Domain Question Answering](https://aclanthology.org/2024.acl-long.533/)**
+
+- **[RAM-EHR: Retrieval Augmentation Meets Clinical Predictions on Electronic Health Records(short)](https://arxiv.org/abs/2403.00815)**
+
+- [**Joint Medical LLM and Retrieval Training for Enhancing Reasoning and Professional Question Answering Capability**](https://arxiv.org/abs/2402.17887)
+
+- **[Improving Medical Reasoning through Retrieval and Self-Reflection with Retrieval-Augmented](https://arxiv.org/abs/2401.15269)**
+
+- **[RULE: Reliable Multimodal RAG for Factuality in Medical Vision Language Models](https://aclanthology.org/2024.emnlp-main.62/)**
+- **[MedCoT: Medical Chain of Thought via Hierarchical Expert](https://aclanthology.org/2024.emnlp-main.962/)**
+
+- **[BMRetriever: Tuning Large Language Models as Better Biomedical Text Retrievers](https://aclanthology.org/2024.emnlp-main.1241/)**
+
+- **[SeRTS: Self-Rewarding Tree Search for Biomedical Retrieval-Augmented Generation](https://aclanthology.org/2024.findings-emnlp.71/)**
