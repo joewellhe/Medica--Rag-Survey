@@ -119,11 +119,10 @@ More information about biomedical embedding models can be found in Table I of th
 Although the aforementioned off-the-shelf retrievers are readily available, the task of searching for relevant and accurate documents in the medical domain remains challenging. Consequently, customized retrievers tailored specifically to these tasks have been developed. These advanced retrievers also achieve comparable performance. Here, we introduce some of them.
 
 - **Contriever**:  An unsupervised general dense retriever based on contrastive learning. Experiments show that its zero-shot capability (trained on general corpora and applied to new domains) is promising. It is often used as a strong baseline in biomedical RAG.<br>[[pdf]](https://arxiv.org/abs/2112.09118); [[Github]](https://github.com/facebookresearch/contriever)
-
 - **SPECTER**:  A model designed to generate document-level embeddings of scientific documents. It utilizes the citation graph as a training signal to capture inter-document relatedness, showing an advantage in generating document embeddings, particularly for scientific papers. In the biomedical domain, scientific papers are a vital part of external knowledge sources, so using SPECTER as a retriever in biomedical RAG demonstrates comparable performance.<br>[[pdf]](https://arxiv.org/pdf/2004.07180); [[Github]](https://github.com/allenai/specter)
-
 - **MedCPT**: A specialized retriever trained on user click logs from PubMed. It includes a query encoder (QEnc), a document encoder (DEnc), and a ranking model (CrossEnc). The initial embedding model used in MedCPT is PubMedBERT. Contrastive loss is employed to train both the MedCPT retriever (QEnc, DEnc) and the MedCPT ret-ranker (CrossEnc).<br>[[pdf]](https://arxiv.org/abs/2307.00589); [[Github]](https://github.com/ncbi/MedCPT)
 - **MEDRAG toolkit**:  A systematic implementation of RAG for medical QA. It provides a convenient way to search multi-source medical documents. Its retriever consists of four different components, including BM25, Contriever, SPECTER, and MedCPT.<br>[[pdf]](https://aclanthology.org/2024.findings-acl.372.pdf); [[Github]](https://github.com/Teddy-XiongGZ/MedRAG)
+- **Llama2Vec**:  An LLM-based embedding method that fine-tunes Llama on novel unsupervised adaptation tasks, enabling it to serve as an effective backbone encoder for dense retrieval. Although originally developed for the general domain, it can be applied to or further enhanced for biomedical RAG.<br>[[pdf]](https://aclanthology.org/2024.acl-long.191/);
 
 #### Literature
 
@@ -325,17 +324,17 @@ Source-Augmented (SA) metrics additionally consider relevant context to evaluate
 
 ## Frontiers
 
+In this field, several promising methods have recently emerged, aiming to explore effective patterns for constructing a more advanced biomedical RAG. We present several noteworthy studies in this section and will continue to update it with the latest advancements in the field. 
+
+Jeong et al. [[pdf]](https://arxiv.org/abs/2401.15269) introduced a self-adaptive RAG framework tailored for the biomedical domain, termed Self-BioRAG, which empowers the LLM to autonomously determine whether a given question necessitates retrieval.If a question does not require retrieval, the backbone LLM will address it solely through its generative capabilities. Wang et al. [[pdf]](https://arxiv.org/abs/2402.17887) introduced JMLR, a synchronized training framework designed to jointly optimize the fine-tuning of both the LLM and the information retrieval component. It offers a novel approach to align the retriever and the LLM in Biomedical RAG. Frisoni et al. [[pdf]](https://aclanthology.org/2024.acl-long.533/) present MEDGENIE, the first generate-then-read framework, which demonstrates superior performance compared to traditional retrieval-then-read approaches. Their work highlights that suboptimal retrieval can introduce noise and undermine the generative capabilities of medical LLMs. 
+
+Here, we present some of the latest works in biomedical  RAG research and will continuously update this list.
+
 - **[To Generate or to Retrieve? On the Effectiveness of Artificial Contexts for Medical Open-Domain Question Answering](https://aclanthology.org/2024.acl-long.533/)**
-
 - **[RAM-EHR: Retrieval Augmentation Meets Clinical Predictions on Electronic Health Records(short)](https://arxiv.org/abs/2403.00815)**
-
 - [**Joint Medical LLM and Retrieval Training for Enhancing Reasoning and Professional Question Answering Capability**](https://arxiv.org/abs/2402.17887)
-
 - **[Improving Medical Reasoning through Retrieval and Self-Reflection with Retrieval-Augmented](https://arxiv.org/abs/2401.15269)**
-
-- **[RULE: Reliable Multimodal RAG for Factuality in Medical Vision Language Models](https://aclanthology.org/2024.emnlp-main.62/)**
 - **[MedCoT: Medical Chain of Thought via Hierarchical Expert](https://aclanthology.org/2024.emnlp-main.962/)**
-
 - **[BMRetriever: Tuning Large Language Models as Better Biomedical Text Retrievers](https://aclanthology.org/2024.emnlp-main.1241/)**
-
 - **[SeRTS: Self-Rewarding Tree Search for Biomedical Retrieval-Augmented Generation](https://aclanthology.org/2024.findings-emnlp.71/)**
+- [**BiomedRAG: A Retrieval Augmented Large Language Model for Biomedicine**](https://arxiv.org/abs/2405.00465)
