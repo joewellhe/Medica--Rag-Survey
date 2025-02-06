@@ -101,6 +101,13 @@ Thanks to recent advances in Large Language Models, many AI companies now provid
 
 Due to their larger number of parameters, large language models have a superior ability to understand text. Some researchers choose to use the embedding layers of open-source LLMs for document embedding. There are many LLMs available for embedding purposes. More details about LLMs in RAG can be found in [Generation Model](#generation-model) section. Here, we provide an [example](https://github.com/ToneLi/BIoMedRAG/blob/main/0_make_relation_chuck_and_scorer_data/1_get_store_chuck_embeddings_5.py) that uses MedLLaMA as an embedding model.
 
+However, most large language models (LLMs) are decoder-only architectures that employ causal attention mechanisms, which inherently limit their ability to generate rich contextualized representations. Despite these limitations, numerous studies have demonstrated that LLM-based embeddings outperform BERT-based embeddings across a wide range of tasks. Consequently, researchers are increasingly focusing on developing more advanced LLM-based embedding methods that can be effectively applied to document-based tasks such as information retrieval. Below, we list some recent advancements in this field.
+
+- **Llama2Vec**:  An LLM-based embedding method that fine-tunes Llama on novel unsupervised adaptation tasks, enabling it to serve as an effective backbone encoder for dense retrieval. Although originally developed for the general domain, it can be applied to or further enhanced for biomedical RAG.<br>[[pdf]](https://aclanthology.org/2024.acl-long.191/);
+- **Landmark Embedding**: Instead of splitting long contexts into chunks, this method provides an approach to construct semantic representations at specific semantic positions, such as the end of a sentence or paragraph, known as landmark embedding.<br>[[pdf]](https://aclanthology.org/2024.acl-long.180/)
+
+- **LLM2Vec:** It provide a simple unsupervised approach that can transform any decoder-only LLM into a strong text encoder.<br>[[pdf]](https://arxiv.org/abs/2404.05961);[[Github]](https://github.com/McGill-NLP/llm2vec)
+
 ##### Biomedical Embedding Models
 
 In many biomedical NLP tasks, language models trained on biomedical-related corpora outperform general-domain language models due to their superior ability to understand biomedical language. Therefore, using a biomedical language model as an embedding model is a common approach to building a semantic retriever. Below, we list some popular biomedical embedding models.
@@ -119,10 +126,14 @@ More information about biomedical embedding models can be found in Table I of th
 Although the aforementioned off-the-shelf retrievers are readily available, the task of searching for relevant and accurate documents in the medical domain remains challenging. Consequently, customized retrievers tailored specifically to these tasks have been developed. These advanced retrievers also achieve comparable performance. Here, we introduce some of them.
 
 - **Contriever**:  An unsupervised general dense retriever based on contrastive learning. Experiments show that its zero-shot capability (trained on general corpora and applied to new domains) is promising. It is often used as a strong baseline in biomedical RAG.<br>[[pdf]](https://arxiv.org/abs/2112.09118); [[Github]](https://github.com/facebookresearch/contriever)
+
 - **SPECTER**:  A model designed to generate document-level embeddings of scientific documents. It utilizes the citation graph as a training signal to capture inter-document relatedness, showing an advantage in generating document embeddings, particularly for scientific papers. In the biomedical domain, scientific papers are a vital part of external knowledge sources, so using SPECTER as a retriever in biomedical RAG demonstrates comparable performance.<br>[[pdf]](https://arxiv.org/pdf/2004.07180); [[Github]](https://github.com/allenai/specter)
+
 - **MedCPT**: A specialized retriever trained on user click logs from PubMed. It includes a query encoder (QEnc), a document encoder (DEnc), and a ranking model (CrossEnc). The initial embedding model used in MedCPT is PubMedBERT. Contrastive loss is employed to train both the MedCPT retriever (QEnc, DEnc) and the MedCPT ret-ranker (CrossEnc).<br>[[pdf]](https://arxiv.org/abs/2307.00589); [[Github]](https://github.com/ncbi/MedCPT)
+
 - **MEDRAG toolkit**:  A systematic implementation of RAG for medical QA. It provides a convenient way to search multi-source medical documents. Its retriever consists of four different components, including BM25, Contriever, SPECTER, and MedCPT.<br>[[pdf]](https://aclanthology.org/2024.findings-acl.372.pdf); [[Github]](https://github.com/Teddy-XiongGZ/MedRAG)
-- **Llama2Vec**:  An LLM-based embedding method that fine-tunes Llama on novel unsupervised adaptation tasks, enabling it to serve as an effective backbone encoder for dense retrieval. Although originally developed for the general domain, it can be applied to or further enhanced for biomedical RAG.<br>[[pdf]](https://aclanthology.org/2024.acl-long.191/);
+
+  
 
 #### Literature
 
