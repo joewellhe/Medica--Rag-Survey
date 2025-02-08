@@ -106,7 +106,8 @@ However, most large language models (LLMs) are decoder-only architectures that e
 - **Llama2Vec**:  An LLM-based embedding method that fine-tunes Llama on novel unsupervised adaptation tasks, enabling it to serve as an effective backbone encoder for dense retrieval. Although originally developed for the general domain, it can be applied to or further enhanced for biomedical RAG.<br>[[pdf]](https://aclanthology.org/2024.acl-long.191/);
 - **Landmark Embedding**: Instead of splitting long contexts into chunks, this method provides an approach to construct semantic representations at specific semantic positions, such as the end of a sentence or paragraph, known as landmark embedding.<br>[[pdf]](https://aclanthology.org/2024.acl-long.180/)
 
-- **LLM2Vec:** It provide a simple unsupervised approach that can transform any decoder-only LLM into a strong text encoder.<br>[[pdf]](https://arxiv.org/abs/2404.05961);[[Github]](https://github.com/McGill-NLP/llm2vec)
+- **LLM2Vec:** It provide a simple unsupervised approach that can transform any decoder-only LLM into a strong text encoder.<br>[[pdf]](https://arxiv.org/abs/2404.05961);[[Github]](https://github.com/McGill-NLP/llm2vec) 
+- E5mistral: 
 
 ##### Biomedical Embedding Models
 
